@@ -7,7 +7,6 @@ services:
     depends_on:
       - "mysql"
       - "elasticsearch"
-      - "permissions"
     ports:
       - "8000:80"
     volumes:
@@ -48,11 +47,6 @@ services:
       nofile:
         soft: 65536
         hard: 65536
-  permissions:
-    container_name: "sugar-permissions"
-    image: sugarcrmdevelopers/sugardockerized:permissions-latest
-    volumes:
-      - "./sugar-ent:/var/www/html/ampersand-sugar"
 
 networks:
   default:
