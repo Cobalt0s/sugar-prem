@@ -24,16 +24,10 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
     && docker-php-ext-install imap
+RUN docker-php-ext-install soap
 
-#RUN apt update && echo y | apt install default-mysql-server
-
-COPY ./files/apache2.conf /etc/apache2/apache2.conf
-COPY ./files/autoindex.conf /etc/apache2/mods-enabled/autoindex.conf
 COPY ./files/php.ini /usr/local/etc/php/php.ini
 
-# TODO some permissions are different
-# https://support.sugarcrm.com/documentation/sugar_versions/13.0/ent/installation_and_upgrade_guide/#Linux_Server_Installation_Requirements
-#COPY --chmod=775 . /var/www/html/ampersand-sugar FIXME as of now we mount, permissions are preserved as on host
 WORKDIR /var/www/html/ampersand-sugar
 
 EXPOSE 80

@@ -8,8 +8,16 @@ $sugar_config = [
         'db_type' => 'mysql',
         'db_host_name' => 'mysql:3306',
         // Credentials
-        'db_name' => 'sugarcrmDB',
-        'db_user_name' => 'ampUser',
-        'db_password' => 'password',
-    ]
+        'db_name' => 'sugarcrm',
+        'db_user_name' => 'root',
+        'db_password' => 'root',
+    ],
+    array(
+        'Elastic' =>
+            array(
+                'host' => 'elasticsearch',
+                'port' => '9200',
+            ),
+    ),
+    'demoData' => 'yes',
 ];
